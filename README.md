@@ -18,6 +18,8 @@
 
 - Build the .wasm file using the command `go build -o public/wasm/dissect.wasm unverity/cmd/wasm` in the root project directory
 
+- Note: Make sure the environment variables `GOARCH=wasm` and `GOOS=js` are set
+
 ## Running the server
 
 - Build the server using the command `go build unverity/cmd/server` in the root project directory
@@ -29,7 +31,7 @@ Environment Variables:
 - `FILE_SERVER_PATH`: Set the fileserver path. This should be the directory of the public folder. Default `public`.
 - `FILE_SERVER_PORT`: The port of the fileserver. Default 8080.
 
-## Building the `wasm_exec.js` file
+## Updating the `wasm_exec.js` file
 
 - The `wasm_exec.js` is a runtime support script for running Go-compiled WebAssembly modules in web browsers, found in the Go source directory.
 - To update the `wasm_exec.js` file, copy the file from the Go source directory to the project:
@@ -37,5 +39,3 @@ Environment Variables:
 ```sh
 cp $(go env GOROOT)/misc/wasm/wasm_exec.js /path/to/your/project/static/wasm/
 ```
-
-- Note: Make sure the environment variables `GOARCH=wasm` and `GOOS=js` are set

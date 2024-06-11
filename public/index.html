@@ -1,0 +1,57 @@
+<!doctype html>
+    <html>
+        <head>
+            <title>Unverity: Verity Dissections</title>
+            <link rel="stylesheet" href="style.css">
+            <script src="wasm/wasm_exec.js"></script>
+            <script>
+                const go = new Go();
+                WebAssembly.instantiateStreaming(fetch("wasm/dissect.wasm"), go.importObject).then((result) => {
+                    go.run(result.instance);
+                });
+            </script>
+            <script src="script.js"></script>
+        </head>
+    <body>
+
+    <div id="center">
+        <h2>Unverity: Salvation's Edge Verity Dissections Tool</h2>
+
+        <p class="content">Inside Symbol Callout</p>
+        <label for="soloCallout"></label><input type="text" id="soloCallout" placeholder="TSC">
+
+        <p class="content">Outside 3D Objects</p>
+        <div>
+            <label for="object1"></label><select id="object1">
+                <option value="cylinder">cylinder</option>
+                <option value="cone">cone</option>
+                <option value="prism">prism</option>
+                <option value="sphere">sphere</option>
+                <option value="cube">cube</option>
+                <option value="pyramid">pyramid</option>
+            </select>
+            <label for="object2"></label><select id="object2">
+                <option value="cylinder">cylinder</option>
+                <option value="cone">cone</option>
+                <option value="prism">prism</option>
+                <option value="sphere">sphere</option>
+                <option value="cube">cube</option>
+                <option value="pyramid">pyramid</option>
+            </select>
+            <label for="object3"></label><select id="object3">
+                <option value="cylinder">cylinder</option>
+                <option value="cone">cone</option>
+                <option value="prism">prism</option>
+                <option value="sphere">sphere</option>
+                <option value="cube">cube</option>
+                <option value="pyramid">pyramid</option>
+            </select>
+
+            <button id="start">Start</button>
+        </div>
+
+        <p class="content">Dissections</p>
+        <div><p id="dissections"></p></div>
+    </div>
+    </body>
+</html>
